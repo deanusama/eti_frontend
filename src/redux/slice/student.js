@@ -182,7 +182,7 @@ export const allStudent = () => {
         dispatch(loadingState(true))
 
         try {
-            const { data: { students } } = await axios.get('https://eti-sarver.vercel.app/api/v1/student')
+            const { data: { students } } = await axios.get('https://eti-server.onrender.com/api/v1/student')
 
             dispatch(setAllStudent(students))
             dispatch(loadingState(false))
@@ -199,7 +199,7 @@ export const editStudent = (dataValues) => {
         dispatch(loadingState(true))
         try {
 
-            const { data } = await axios.patch(`https://eti-sarver.vercel.app/api/v1/student/edit-student/${dataValues.id}`, dataValues)
+            const { data } = await axios.patch(`https://eti-server.onrender.com/api/v1/student/edit-student/${dataValues.id}`, dataValues)
 
             console.log(data, 'updatedBacking');
             // toast.success(`Course Updated successfully id: ${id}`)
@@ -222,7 +222,7 @@ export const hideStudents = () => {
         const deleteArr = Object.keys(state.student.studentDeleteCheck)
 
         try {
-            const { data: { hideStudentIds } } = await axios.post('https://eti-sarver.vercel.app/api/v1/student/hide-students', deleteArr)
+            const { data: { hideStudentIds } } = await axios.post('https://eti-server.onrender.com/api/v1/student/hide-students', deleteArr)
 
 
             dispatch(emptyStudentDeleteCheck(hideStudentIds))
@@ -238,7 +238,7 @@ export const hideStudents = () => {
 export const getStudentsInvoices = () => {
     return async (dispatch) => {
         try {
-            const { data: { studentInvoices } } = await axios.get('https://eti-sarver.vercel.app/api/v1/student/student-invoices')
+            const { data: { studentInvoices } } = await axios.get('https://eti-server.onrender.com/api/v1/student/student-invoices')
 
             console.log(studentInvoices);
             dispatch(actions.setAllStudentInvoices(studentInvoices))
@@ -260,7 +260,7 @@ export const editStudentInvoice = (dataValues) => {
         dispatch(loadingState(true))
         try {
 
-            const { data } = await axios.patch(`https://eti-sarver.vercel.app/api/v1/student/edit-invoice/${dataValues._id}`, dataValues)
+            const { data } = await axios.patch(`https://eti-server.onrender.com/api/v1/student/edit-invoice/${dataValues._id}`, dataValues)
 
             console.log(data, 'updatedBacking');
             // toast.success(`Course Updated successfully id: ${id}`)

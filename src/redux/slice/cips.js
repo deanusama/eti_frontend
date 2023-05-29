@@ -119,7 +119,7 @@ export const addCipsStudent = (dataValues) => {
 
         try {
 
-            const { data } = await axios.post(`https://eti-sarver.vercel.app/api/v1/cips`, dataValues)
+            const { data } = await axios.post(`https://eti-server.onrender.com/api/v1/cips`, dataValues)
             dispatch(actions.addCipsStudent(data.cipsStudent))
             toast.success(`Cips student created successfully`)
             dispatch(loadingState(false))
@@ -141,7 +141,7 @@ export const allCipsStudent = () => {
 
         dispatch(loadingState(true))
         try {
-            const { data: { cipsStudent } } = await axios.get('https://eti-sarver.vercel.app/api/v1/cips')
+            const { data: { cipsStudent } } = await axios.get('https://eti-server.onrender.com/api/v1/cips')
             dispatch(setAllCipsStudent(cipsStudent))
             
             dispatch(loadingState(false))
@@ -165,7 +165,7 @@ export const hideCipsStudent = () => {
         const deleteArr = Object.keys(state.cips.deleteCheck)
 
         try {
-            const { data: { message, hideCipsStudentIds } } = await axios.post('https://eti-sarver.vercel.app/api/v1/cips/hide-cipsStudent', deleteArr)
+            const { data: { message, hideCipsStudentIds } } = await axios.post('https://eti-server.onrender.com/api/v1/cips/hide-cipsStudent', deleteArr)
             console.log(message);
             console.log(hideCipsStudentIds);
 
@@ -187,7 +187,7 @@ export const updateCipsStudent = (dataValues) => {
 
         try {
 
-            const { data: { cipsStudent } } = await axios.get(`https://eti-sarver.vercel.app/api/v1/cips/${dataValues}`)
+            const { data: { cipsStudent } } = await axios.get(`https://eti-server.onrender.com/api/v1/cips/${dataValues}`)
             dispatch(getUpdateCipsStudent(cipsStudent))
 
         } catch (error) {
@@ -206,7 +206,7 @@ export const editCipsStudent = (dataValues) => {
         dispatch(loadingState(true))
         try {
 
-            const { data } = await axios.patch(`https://eti-sarver.vercel.app/api/v1/cips/edit-cips-student/${dataValues.id}`, dataValues)
+            const { data } = await axios.patch(`https://eti-server.onrender.com/api/v1/cips/edit-cips-student/${dataValues.id}`, dataValues)
 
             dispatch(actions.editCipsStudent(data.updatedCipsStudent))
             toast.success(`Cips Student Updated successfully id: ${dataValues.id}`)

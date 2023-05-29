@@ -104,7 +104,7 @@ export const addCourse = (dataValues) => {
 
         try {
 
-            const { data } = await axios.post('https://eti-sarver.vercel.app/api/v1/course', dataValues)
+            const { data } = await axios.post('https://eti-server.onrender.com/api/v1/course', dataValues)
             dispatch(actions.addCourse(data.course))
             console.log(data);
             dispatch(loadingState(false))
@@ -125,7 +125,7 @@ export const allCourse = () => {
 
         try {
 
-            const { data: { course } } = await axios.get('https://eti-sarver.vercel.app/api/v1/course')
+            const { data: { course } } = await axios.get('https://eti-server.onrender.com/api/v1/course')
 
             dispatch(setAllCourse(course))
             dispatch(loadingState(false))
@@ -148,7 +148,7 @@ export const hideCourses = () => {
         const deleteArr = Object.keys(state.course.deleteCheck)
 
         try {
-            const { data: { message, hideCoursesIds } } = await axios.post('https://eti-sarver.vercel.app/api/v1/course/hide-courses', deleteArr)
+            const { data: { message, hideCoursesIds } } = await axios.post('https://eti-server.onrender.com/api/v1/course/hide-courses', deleteArr)
             // console.log(message);
             // console.log(hideCoursesIds);
 
@@ -177,7 +177,7 @@ export const editCourse = (dataValues) => {
         dispatch(loadingState(true))
         try {
 
-            const { data } = await axios.patch(`https://eti-sarver.vercel.app/api/v1/course/edit-course/${id}`, dataValues)
+            const { data } = await axios.patch(`https://eti-server.onrender.com/api/v1/course/edit-course/${id}`, dataValues)
 
             // console.log(data);
             dispatch(actions.editCourse(data.updatedCourse))

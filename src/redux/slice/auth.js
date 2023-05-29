@@ -54,7 +54,7 @@ export const loginUser = (dataValues) => {
         dispatch(loadingState(true))
 
         try {
-            const { data } = await axios.post('https://eti-sarver.vercel.app/api/v1/user/login', dataValues)
+            const { data } = await axios.post('https://eti-server.onrender.com/api/v1/user/login', dataValues)
             const { user, token } = data
 
             dispatch(setCurrentUser({ user, token }))
