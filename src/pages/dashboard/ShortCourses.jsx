@@ -81,6 +81,9 @@ const ShortCourses = () => {
                                 <button className="form__button">
                                     <svg className="icon icon-search">
                                         <use xlinkHref="#icon-search" />
+                                        <use xlinkHref="#icon-search" />
+                                        <use xlinkHref="#icon-search" />
+                                        <use xlinkHref="#icon-search" />
                                     </svg>
                                 </button>
                             </form> */}
